@@ -1,0 +1,209 @@
+@font-face {
+  font-family: "quicksand";
+  src: url(./assets/font/Quicksand-VariableFont_wght.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Colors --------------------------------------------- */
+  --color-main: #e97d63;
+  --color-bg: #2a2a2a;
+  --color-grid: #ffffff;
+  --color-text: #f8f2e7;
+  --color-btn: #ded7c9;
+
+  /* Typography ----------------------------------------- */
+  --font-family: "quicksand";
+  --font-size-h1: 3rem;
+  --font-size-txt: 1.5rem;
+  --font-size-p: 1rem;
+  --font-size-btn: 1.2rem;
+
+  /* Spacing -------------------------------------------- */
+  --spacing-xxs: 0.5rem;
+  --spacing-xs: 1rem;
+  --spacing-s: 2rem;
+  --spacing-m: 3rem;
+  --spacing-b: 5rem;
+  --spacing-xl: 8rem;
+
+  /* Border radius -------------------------------------- */
+  --radius-sm: 10px;
+  --radius-md: 25px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  margin-top: var(--spacing-s);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+}
+header {
+  grid-column: 1 / 4; /* spans all 3 columns */
+  grid-row: 1 / 2;
+  text-align: center;
+  margin-bottom: var(--spacing-m);
+}
+h1 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-h1);
+  color: var(--color-main);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+#game-board {
+  grid-column: 2 / 3; /* middle column */
+  grid-row: 2 / 3;
+  display: grid;
+  border: 2px solid var(--color-grid);
+  grid-template-columns: repeat(var(--columns), 80px);
+  gap: 10px;
+  padding: var(--spacing-xxs);
+  border-radius: var(--radius-sm);
+}
+.card {
+  border: 2px solid var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 60px;
+  border-radius: var(--radius-sm);
+  transition: transform 0.3s ease;
+}
+
+aside {
+  grid-column: 3 / 4; /* right column */
+  grid-row: 2 / 3;
+  font-family: var(--font-family);
+  font-size: var(--font-size-txt);
+}
+select {
+  font-family: var(--font-family);
+  font-size: var(--font-size-txt);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-text);
+}
+select:focus {
+  outline: 1px solid var(--color-text);
+}
+
+footer {
+  grid-column: 1 / 4; /* spans all 3 columns */
+  grid-row: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-m);
+  margin-top: var(--spacing-m);
+  font-family: var(--font-family);
+  font-size: var(--font-size-p);
+}
+.hud-item {
+  margin: 20px;
+}
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-btn);
+  background-color: var(--color-btn);
+  color: var(--color-bg);
+  padding: var(--spacing-xxs) var(--spacing-s);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background: var(--color-main);
+}
+
+.card.hidden {
+  background-image: url(./assets/images/emojicard.png);
+  color: transparent;
+}
+.card:not(.hidden) {
+  transform: rotateY(180deg);
+}
+
+.card.selected {
+  outline: 3px solid #ffd700;
+  outline-offset: -3px;
+}
+
+.card.matched::after {
+  content: "✨";
+  position: absolute;
+  font-size: 2rem;
+  animation: sparkle 0.5s ease;
+  background: rgba(117, 112, 112, 0.5);
+  padding: 22px;
+  border-radius: var(--radius-sm);
+}
+#dialog-message {
+  margin: auto;
+  border: 2px solid var(--color-btn);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-m);
+  background-color: var(--color-main);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-txt);
+  text-align: center;
+}
+#dialog-message::backdrop {
+  background: rgba(132, 123, 123, 0.5);
+}
+#dialog-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 300px;
+  font-size: var(--font-size-txt);
+  text-align: center;
+}
+#close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  #game-board {
+    grid-column: 1;
+  }
+  aside {
+    grid-column: 1;
+  }
+}

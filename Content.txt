@@ -1,0 +1,38 @@
+Memory game content:
+
+Header -----------------------------------------------------------
+-   H1: Emoji-match
+-   Button: New Game 
+
+Gameboard --------------------------------------------------------
+-   EASY: 6 pairs, 12 cards
+    Grid (4 columns, 3 rows)
+
+-   MEDIUM: 12 pairs, 24 cards
+    Grid (6 columns, 4 rows)
+
+-   HARD: 24 pairs, 48 cards
+    Grid (8 columns, 6 rows)
+
+Game Score area --------------------------------------------------
+-   Moves used:
+-   Matches collected: 
+-   Time
+
+Victory feedback -------------------------------------------------
+-   Dialogue / feedback / alert
+
+- Message:
+"Congratulations, you have sucsessfully completed this game and found all the matches.
+You did this in _____moves and your time was _____.
+
+Would you like to try again and beat your score? Or maybe increase the difficlty?"
+Button (Done)   Button(🔄 Try again) Label+Select (difficulty)
+
+Footer  ----------------------------------------------------------
+-   ©EMOJI-MATCH 2025, founder and creator Marte
+-   Marte is gonna be a a tag link to my github, to see all my projects.
+
+Extra  -----------------------------------------------------------
+-   Music
+-   Info: to give instructions on the fact they can use keyboard also. 

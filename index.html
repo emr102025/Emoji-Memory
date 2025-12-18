@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>Emoji Memory</title>
+  </head>
+  <body>
+    <header>
+      <h1>EMOJI-MATCH</h1>
+      <nav>
+        <button class="btn" id="new-game">New Game</button>
+        <button class="btn" id="quit-game">Quit Game</button>
+      </nav>
+    </header>
+    <main>
+      <div id="game-board"></div>
+      <dialog id="dialog-message">
+        <button id="close-button">X</button>
+        <section id="dialog-box">
+          <p>
+            "Congratulations, you have sucsessfully completed this game and
+            found all the matches. You did this in _____moves and your time was
+            _____. Great job!"
+          </p>
+        </section>
+      </dialog>
+      <aside id="gamehud" aria-label="Game status">
+        <section class="hud-item">
+          <label for="difficulty-levels">Choose your difficulty</label><br />
+          <select id="difficulty-levels">
+            <option value="easy">EASY: 6 pairs</option>
+            <option value="medium">MEDIUM: 12 pairs</option>
+            <option value="hard">HARD: 24 pairs</option>
+          </select>
+        </section>
+        <dl class="hud-item">
+          <dt>Moves used:</dt>
+          <dd><span id="moves-used" aria-live="polite">0</span></dd>
+
+          <dt>Matches collected:</dt>
+          <dd><span id="matches-collected" aria-live="polite">0</span></dd>
+
+          <dt>Time elapsed:</dt>
+          <dd>
+            <time id="time-used" datetime="PT0S" aria-live="off">00:00</time>
+          </dd>
+        </dl>
+      </aside>
+    </main>
+    <footer>
+      <p>Copyright © EMOJI-MATCH 2025</p>
+      <p>
+        Founder & Creator -
+        <a href="https://github.com/emr102025" target="_blank"> Marte</a>
+      </p>
+    </footer>
+  </body>
+</html>
