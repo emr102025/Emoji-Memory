@@ -9,6 +9,8 @@ const matchEl = document.getElementById("matches-collected"); //Display the matc
 const timeEl = document.getElementById("time-used"); //Display time used
 const dialogMessage = document.getElementById("dialog-message"); //Dialog box
 const closeBtn = document.getElementById("close-button"); //Close btton for dialog box
+const music = document.getElementById("bg-music");
+const button = document.getElementById("music-toggle");
 
 // -------------------------------------------------- GAME VARIABLES -----------------------------------------------------
 
@@ -22,6 +24,7 @@ let firstCard = null; //First card reference
 let secondCard = null; //Second card reference
 let lockBoard = false; //Prevents interaction while checkingfor matches
 let selectedIndex = 0; //Index of currently selected card for keyboard navigation
+let isPlaying = false;
 
 // -------------------------------------------------- EMOJI LIST ---------------------------------------------------
 
@@ -51,6 +54,23 @@ const emojiList = [
   "🐝",
   "🐥",
 ];
+
+// ----------------------------------------------------- MUSIC LOGIC --------------------------------------------------------
+
+// Toggle button
+function musicLogic() {
+  music.volume = 0.5; // optional
+  if (isPlaying) {
+    music.pause();
+    button.textContent = "Music ON";
+  } else {
+    music.play();
+    button.textContent = "Music PAUSE";
+  }
+  isPlaying = !isPlaying;
+}
+
+button.addEventListener("click", musicLogic);
 
 // -------------------------------------------------- DIFFICULTY LEVEL ---------------------------------------------------
 

@@ -9,7 +9,12 @@
   </head>
   <body>
     <header>
-      <h1>EMOJI-MATCH</h1>
+      <img
+        src="./assets/images/emoji-logo.png"
+        alt="Emoji-match logo in a fun kids style with a star and a heart."
+        id="logo"
+      />
+      <h1>MATCH THE EMOJIS</h1>
       <nav>
         <button class="btn" id="new-game">New Game</button>
         <button class="btn" id="quit-game">Quit Game</button>
@@ -36,18 +41,22 @@
             <option value="hard">HARD: 24 pairs</option>
           </select>
         </section>
-        <dl class="hud-item">
-          <dt>Moves used:</dt>
+        <dl class="hud-item" id="hud-container">
+          <dt class="hud">Moves used:</dt>
           <dd><span id="moves-used" aria-live="polite">0</span></dd>
-
-          <dt>Matches collected:</dt>
-          <dd><span id="matches-collected" aria-live="polite">0</span></dd>
-
-          <dt>Time elapsed:</dt>
+          <dt class="hud">Matches collected:</dt>
+          <dd>
+            <span id="matches-collected" aria-live="polite">0</span>
+          </dd>
+          <dt class="hud">Time elapsed:</dt>
           <dd>
             <time id="time-used" datetime="PT0S" aria-live="off">00:00</time>
           </dd>
         </dl>
+        <audio id="bg-music" loop>
+          <source src="./assets/audio/Bg.mp3" type="audio/mpeg" />
+        </audio>
+        <button class="btn" id="music-toggle">Music ON</button>
       </aside>
     </main>
     <footer>
